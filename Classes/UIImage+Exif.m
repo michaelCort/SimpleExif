@@ -12,11 +12,9 @@
 
 @implementation UIImage (Exif)
 
-- (NSData *)addExif:(ExifContainer *)container {
++ (NSData *)addExifForImageData:(NSData *)imageData exif:(ExifContainer *)container {
     
-    NSData *imageData = UIImageJPEGRepresentation(self, 1.0f);
     
-    // create an imagesourceref
     CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef) imageData, NULL);
     
     // this is the type of image (e.g., public.jpeg)
@@ -43,7 +41,6 @@
     CFRelease(source);
     
     return dest_data;
-    
 }
 
 @end
