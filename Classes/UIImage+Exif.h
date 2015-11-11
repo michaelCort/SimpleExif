@@ -13,5 +13,6 @@
 @interface UIImage (Exif)
 
 + (NSData *)addExifForImageData:(NSData *)imageData exif:(ExifContainer *)container;
++ (NSData *)copyToImage:(NSData *)imageData exifData:(NSDictionary *)container;
 
 @end
